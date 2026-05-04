@@ -38,12 +38,12 @@ Single-project web application:
 
 **Purpose**: Initialize project tooling and directory structure
 
-- [ ] T001 Initialize Next.js 14 project with TypeScript and App Router (`npx create-next-app@latest . --typescript --tailwind --app --no-src-dir` then move to `src/` layout per plan.md)
-- [ ] T002 [P] Configure Tailwind CSS base styles and design tokens in `tailwind.config.ts` and `src/app/globals.css`
-- [ ] T003 [P] Install and configure Playwright for E2E testing (`npx playwright install`; create `playwright.config.ts` targeting localhost:3000)
-- [ ] T004 [P] Install and configure Vitest for unit tests (`npm install -D vitest`; add `vitest.config.ts`)
-- [ ] T005 [P] Install Resend SDK (`npm install resend`) and create `.env.local.example` with `RESEND_API_KEY` and `CONTACT_EMAIL` placeholders
-- [ ] T006 [P] Create directory scaffolding: `src/components/layout/`, `src/components/sections/`, `src/components/ui/`, `src/content/`, `src/lib/`, `tests/e2e/`, `tests/unit/`, `public/images/hero/`, `public/images/products/`, `public/images/partners/`
+- [x] T001 Initialize Next.js 14 project with TypeScript and App Router (`npx create-next-app@latest . --typescript --tailwind --app --no-src-dir` then move to `src/` layout per plan.md)
+- [x] T002 [P] Configure Tailwind CSS base styles and design tokens in `tailwind.config.ts` and `src/app/globals.css`
+- [x] T003 [P] Install and configure Playwright for E2E testing (`npx playwright install`; create `playwright.config.ts` targeting localhost:3000)
+- [x] T004 [P] Install and configure Vitest for unit tests (`npm install -D vitest`; add `vitest.config.ts`)
+- [x] T005 [P] Install Resend SDK (`npm install resend`) and create `.env.local.example` with `RESEND_API_KEY` and `CONTACT_EMAIL` placeholders
+- [x] T006 [P] Create directory scaffolding: `src/components/layout/`, `src/components/sections/`, `src/components/ui/`, `src/content/`, `src/lib/`, `tests/e2e/`, `tests/unit/`, `public/images/hero/`, `public/images/products/`, `public/images/partners/`
 
 ---
 
@@ -54,14 +54,14 @@ stories depend on.
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T007 Create root layout shell in `src/app/layout.tsx` (imports Header and Footer, sets `<html lang="en">`, links global CSS)
-- [ ] T008 [P] Create `Header` component in `src/components/layout/Header.tsx` with navigation links to all 5 routes (`/`, `/about`, `/exports`, `/consultation`, `/contact`) per `contracts/page-routes.md`
-- [ ] T009 [P] Create `Footer` component in `src/components/layout/Footer.tsx` with company name, copyright, and contact email placeholder
-- [ ] T010 [P] Create `Navigation` component in `src/components/layout/Navigation.tsx` (mobile-responsive hamburger + desktop horizontal nav; used by Header)
-- [ ] T011 [P] Create `Button` UI component in `src/components/ui/Button.tsx` (primary and secondary variants; accepts `href` for link-buttons)
-- [ ] T012 Create custom 404 page in `src/app/not-found.tsx` with user-friendly message and link back to homepage (FR-012)
-- [ ] T013 [P] Create placeholder TypeScript content data files: `src/content/company.ts` (CompanyProfile), `src/content/products.ts` (ProductCategory[]), `src/content/services.ts` (ConsultationService[]), `src/content/credibility.ts` (CredibilityIndicator[]) — use data shapes from `data-model.md`, populate with clearly-labelled placeholder values
-- [ ] T014 [P] Create email utility in `src/lib/email.ts` — exports `sendInquiryEmail(data: InquiryFormData): Promise<{success: boolean}>` using Resend SDK; reads `RESEND_API_KEY` and `CONTACT_EMAIL` from environment
+- [x] T007 Create root layout shell in `src/app/layout.tsx` (imports Header and Footer, sets `<html lang="en">`, links global CSS)
+- [x] T008 [P] Create `Header` component in `src/components/layout/Header.tsx` with navigation links to all 5 routes (`/`, `/about`, `/exports`, `/consultation`, `/contact`) per `contracts/page-routes.md`
+- [x] T009 [P] Create `Footer` component in `src/components/layout/Footer.tsx` with company name, copyright, and contact email placeholder
+- [x] T010 [P] Create `Navigation` component in `src/components/layout/Navigation.tsx` (mobile-responsive hamburger + desktop horizontal nav; used by Header)
+- [x] T011 [P] Create `Button` UI component in `src/components/ui/Button.tsx` (primary and secondary variants; accepts `href` for link-buttons)
+- [x] T012 Create custom 404 page in `src/app/not-found.tsx` with user-friendly message and link back to homepage (FR-012)
+- [x] T013 [P] Create placeholder TypeScript content data files: `src/content/company.ts` (CompanyProfile), `src/content/products.ts` (ProductCategory[]), `src/content/services.ts` (ConsultationService[]), `src/content/credibility.ts` (CredibilityIndicator[]) — use data shapes from `data-model.md`, populate with clearly-labelled placeholder values
+- [x] T014 [P] Create email utility in `src/lib/email.ts` — exports `sendInquiryEmail(data: InquiryFormData): Promise<{success: boolean}>` using Resend SDK; reads `RESEND_API_KEY` and `CONTACT_EMAIL` from environment
 
 **Checkpoint**: Foundation ready — layout renders, navigation works, content types defined, email utility implemented. User story implementation can now begin in parallel.
 
@@ -77,13 +77,13 @@ completely with placeholder product content; the inquiry form submits and delive
 
 ### Tests for User Story 1 ⚠️ Write first — verify they FAIL before implementing
 
-- [ ] T015 [P] [US1] Write E2E test for export client discovery flow in `tests/e2e/export-client.spec.ts`:
+- [x] T015 [P] [US1] Write E2E test for export client discovery flow in `tests/e2e/export-client.spec.ts`:
   - Homepage loads and displays a visible CTA linking to `/exports`
   - `/exports` page lists at least one product category with name, origin, and characteristics
   - `/contact` page shows the inquiry form
   - Form submission with `serviceOfInterest: "export"` shows success confirmation
   - Form submission with empty required fields shows validation errors
-- [ ] T016 [P] [US1] Write unit test for inquiry form validation logic in `tests/unit/form-validation.test.ts`:
+- [x] T016 [P] [US1] Write unit test for inquiry form validation logic in `tests/unit/form-validation.test.ts`:
   - Empty name → error
   - Invalid email → error
   - Message under 10 characters → error
@@ -91,16 +91,16 @@ completely with placeholder product content; the inquiry form submits and delive
 
 ### Implementation for User Story 1
 
-- [ ] T017 [P] [US1] Populate `src/content/company.ts` with Africom's CompanyProfile placeholder data (name, tagline, mission, US registration status, Tanzanian origin, regional/international markets, contact email)
-- [ ] T018 [P] [US1] Populate `src/content/products.ts` with at least 3 sample ProductCategory entries (name, originRegion "Tanzania", keyCharacteristics, targetMarkets) as placeholder until Africom supplies real content
-- [ ] T019 [US1] Create `ProductCategoryCard` component in `src/components/sections/ProductCategoryCard.tsx` — renders name, origin, key characteristics list, and target markets for one product category
-- [ ] T020 [US1] Create Exports page in `src/app/exports/page.tsx` — renders a grid of ProductCategoryCard components from `src/content/products.ts`; includes a CTA linking to `/contact`; sets unique SEO title and meta description
-- [ ] T021 [US1] Create `InquiryForm` component in `src/components/ui/InquiryForm.tsx` — fields: name (required), organization (optional), email (required), serviceOfInterest dropdown (export/consultation/other, required), message (required); client-side validation per `data-model.md` rules; shows success confirmation or error state
-- [ ] T022 [US1] Create contact form API route in `src/app/api/contact/route.ts` — POST handler per `contracts/contact-api.md`; server-side validation; calls `sendInquiryEmail` from `src/lib/email.ts`; returns 200/400/500 JSON responses with correct shapes
-- [ ] T023 [US1] Create Contact page in `src/app/contact/page.tsx` — renders InquiryForm; includes company contact details (email, address); sets unique SEO title and meta description
-- [ ] T024 [US1] Create `HeroSection` component in `src/components/sections/HeroSection.tsx` — full-width banner with company tagline, brief description, and two CTA buttons linking to `/exports` and `/consultation`
-- [ ] T025 [US1] Create `ServiceSplitSection` component in `src/components/sections/ServiceSplitSection.tsx` — two-column section clearly differentiating the export business line from consultation services, each with a summary and "Learn more" link (FR-005)
-- [ ] T026 [US1] Create Homepage in `src/app/page.tsx` — renders HeroSection and ServiceSplitSection; visitor can identify both service lines and navigate to each within 30 seconds (SC-001); sets unique SEO title and meta description
+- [x] T017 [P] [US1] Populate `src/content/company.ts` with Africom's CompanyProfile placeholder data (name, tagline, mission, US registration status, Tanzanian origin, regional/international markets, contact email)
+- [x] T018 [P] [US1] Populate `src/content/products.ts` with at least 3 sample ProductCategory entries (name, originRegion "Tanzania", keyCharacteristics, targetMarkets) as placeholder until Africom supplies real content
+- [x] T019 [US1] Create `ProductCategoryCard` component in `src/components/sections/ProductCategoryCard.tsx` — renders name, origin, key characteristics list, and target markets for one product category
+- [x] T020 [US1] Create Exports page in `src/app/exports/page.tsx` — renders a grid of ProductCategoryCard components from `src/content/products.ts`; includes a CTA linking to `/contact`; sets unique SEO title and meta description
+- [x] T021 [US1] Create `InquiryForm` component in `src/components/ui/InquiryForm.tsx` — fields: name (required), organization (optional), email (required), serviceOfInterest dropdown (export/consultation/other, required), message (required); client-side validation per `data-model.md` rules; shows success confirmation or error state
+- [x] T022 [US1] Create contact form API route in `src/app/api/contact/route.ts` — POST handler per `contracts/contact-api.md`; server-side validation; calls `sendInquiryEmail` from `src/lib/email.ts`; returns 200/400/500 JSON responses with correct shapes
+- [x] T023 [US1] Create Contact page in `src/app/contact/page.tsx` — renders InquiryForm; includes company contact details (email, address); sets unique SEO title and meta description
+- [x] T024 [US1] Create `HeroSection` component in `src/components/sections/HeroSection.tsx` — full-width banner with company tagline, brief description, and two CTA buttons linking to `/exports` and `/consultation`
+- [x] T025 [US1] Create `ServiceSplitSection` component in `src/components/sections/ServiceSplitSection.tsx` — two-column section clearly differentiating the export business line from consultation services, each with a summary and "Learn more" link (FR-005)
+- [x] T026 [US1] Create Homepage in `src/app/page.tsx` — renders HeroSection and ServiceSplitSection; visitor can identify both service lines and navigate to each within 30 seconds (SC-001); sets unique SEO title and meta description
 
 **Checkpoint**: User Story 1 is fully functional. Export client can discover products and
 submit an inquiry end-to-end. MVP is shippable at this point.
@@ -117,7 +117,7 @@ the inquiry form accepts a `serviceOfInterest: "consultation"` submission.
 
 ### Tests for User Story 2 ⚠️ Write first — verify they FAIL before implementing
 
-- [ ] T027 [P] [US2] Write E2E test for development partner discovery flow in `tests/e2e/dev-partner.spec.ts`:
+- [x] T027 [P] [US2] Write E2E test for development partner discovery flow in `tests/e2e/dev-partner.spec.ts`:
   - Homepage displays a visible CTA linking to `/consultation`
   - `/consultation` page lists at least one consultation service with name, target audience, and value chain topics
   - Consultation service is visually distinct from export products (FR-005)
@@ -125,9 +125,9 @@ the inquiry form accepts a `serviceOfInterest: "consultation"` submission.
 
 ### Implementation for User Story 2
 
-- [ ] T028 [P] [US2] Populate `src/content/services.ts` with at least 2 sample ConsultationService entries (name, description, targetAudience, valueChainTopics) as placeholder until Africom supplies real content
-- [ ] T029 [US2] Create `ConsultationServiceCard` component in `src/components/sections/ConsultationServiceCard.tsx` — renders service name, description, target audience badges, and value chain topics
-- [ ] T030 [US2] Create Consultation page in `src/app/consultation/page.tsx` — renders a list of ConsultationServiceCard components from `src/content/services.ts`; includes a CTA linking to `/contact`; sets unique SEO title and meta description
+- [x] T028 [P] [US2] Populate `src/content/services.ts` with at least 2 sample ConsultationService entries (name, description, targetAudience, valueChainTopics) as placeholder until Africom supplies real content
+- [x] T029 [US2] Create `ConsultationServiceCard` component in `src/components/sections/ConsultationServiceCard.tsx` — renders service name, description, target audience badges, and value chain topics
+- [x] T030 [US2] Create Consultation page in `src/app/consultation/page.tsx` — renders a list of ConsultationServiceCard components from `src/content/services.ts`; includes a CTA linking to `/contact`; sets unique SEO title and meta description
 
 **Checkpoint**: User Stories 1 and 2 are both independently functional. Both service lines
 are discoverable and contactable.
@@ -144,7 +144,7 @@ the CredibilitySection renders or is gracefully omitted when no credibility data
 
 ### Tests for User Story 3 ⚠️ Write first — verify they FAIL before implementing
 
-- [ ] T031 [P] [US3] Write E2E test for company credibility research in `tests/e2e/credibility.spec.ts`:
+- [x] T031 [P] [US3] Write E2E test for company credibility research in `tests/e2e/credibility.spec.ts`:
   - `/about` page displays company name, mission statement, and US registration status
   - `/about` page includes a contact link or CTA
   - CredibilitySection renders when `src/content/credibility.ts` contains entries
@@ -152,10 +152,10 @@ the CredibilitySection renders or is gracefully omitted when no credibility data
 
 ### Implementation for User Story 3
 
-- [ ] T032 [P] [US3] Populate `src/content/credibility.ts` — default export is an empty array (`[]`); add documentation comment instructing developers to populate only when Africom supplies logos/certifications/highlights
-- [ ] T033 [US3] Create `CredibilitySection` component in `src/components/sections/CredibilitySection.tsx` — renders conditionally: returns `null` when the `CredibilityIndicator[]` prop is empty; otherwise renders partner logos, certifications, or project highlights grouped by type
-- [ ] T034 [US3] Create About page in `src/app/about/page.tsx` — renders company history, mission, US registration status, and geographic reach from `src/content/company.ts`; includes CredibilitySection; sets unique SEO title and meta description
-- [ ] T035 [US3] Integrate CredibilitySection into Homepage (`src/app/page.tsx`) — append below ServiceSplitSection, rendered only when `credibility.ts` content array is non-empty
+- [x] T032 [P] [US3] Populate `src/content/credibility.ts` — default export is an empty array (`[]`); add documentation comment instructing developers to populate only when Africom supplies logos/certifications/highlights
+- [x] T033 [US3] Create `CredibilitySection` component in `src/components/sections/CredibilitySection.tsx` — renders conditionally: returns `null` when the `CredibilityIndicator[]` prop is empty; otherwise renders partner logos, certifications, or project highlights grouped by type
+- [x] T034 [US3] Create About page in `src/app/about/page.tsx` — renders company history, mission, US registration status, and geographic reach from `src/content/company.ts`; includes CredibilitySection; sets unique SEO title and meta description
+- [x] T035 [US3] Integrate CredibilitySection into Homepage (`src/app/page.tsx`) — append below ServiceSplitSection, rendered only when `credibility.ts` content array is non-empty
 
 **Checkpoint**: All three user stories are independently functional.
 
@@ -165,9 +165,9 @@ the CredibilitySection renders or is gracefully omitted when no credibility data
 
 **Purpose**: Quality, performance, and SEO concerns that span all user stories
 
-- [ ] T036 [P] Audit and complete SEO metadata for all 5 pages — each page MUST have a unique `<title>`, `<meta name="description">`, and `<h1>` per `contracts/page-routes.md`; homepage title MUST include "Africom"
+- [x] T036 [P] Audit and complete SEO metadata for all 5 pages — each page MUST have a unique `<title>`, `<meta name="description">`, and `<h1>` per `contracts/page-routes.md`; homepage title MUST include "Africom"
 - [ ] T037 [P] Validate responsive layout on all pages at 375px (mobile) and 1280px (desktop); fix any layout breakage or overflowing content
-- [ ] T038 [P] Add social media links to `src/components/layout/Footer.tsx` — render SocialLink items from `src/content/company.ts`; omit the social links block entirely when the array is empty
+- [x] T038 [P] Add social media links to `src/components/layout/Footer.tsx` — render SocialLink items from `src/content/company.ts`; omit the social links block entirely when the array is empty
 - [ ] T039 Run full Playwright E2E test suite across Chromium, Firefox, and WebKit; confirm all tests pass (validates SC-006 — 3 major browsers)
 - [ ] T040 Run complete quickstart.md validation checklist end-to-end on a clean build
 - [ ] T041 Performance audit: measure homepage load time for international visitors using Lighthouse or WebPageTest; verify full load < 4 seconds (SC-004); address any failing assets (image compression, font loading)
