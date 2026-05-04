@@ -1,50 +1,99 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+Version change: (none) → 1.0.0
+Added sections:
+  - Core Principles (I–V)
+  - Quality Standards
+  - Development Workflow
+  - Governance
+Modified principles: N/A (initial version)
+Removed sections: N/A (initial version)
+Templates requiring updates:
+  - .specify/templates/plan-template.md       ✅ Aligned — Constitution Check section derives gates from this file
+  - .specify/templates/spec-template.md       ✅ Aligned — mandatory sections (User Scenarios, Requirements, Success Criteria) match Principles I–IV
+  - .specify/templates/tasks-template.md      ✅ Aligned — user-story phasing and TDD markers match Principles III–IV
+  - .specify/templates/checklist-template.md  ✅ Aligned — generic structure, no principle-specific changes required
+Deferred TODOs: None
+Follow-up: Add project-specific technology stack and compliance constraints once decided
+-->
+
+# Africom Web Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Specification-First Development
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Every feature MUST begin with a written specification before any implementation work starts.
+The specification MUST define user scenarios, functional requirements, and measurable success
+criteria. Implementation without an approved specification is prohibited. Specifications are
+owned artifacts — they MUST be kept current as understanding evolves.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. User-Centric Design
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+Every requirement MUST be expressed in terms of user value and outcome, not technical
+implementation detail. Features without clear, testable user scenarios MUST NOT proceed to
+planning. Success criteria MUST be technology-agnostic and verifiable by a non-technical
+stakeholder.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Test-Driven Implementation
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Tests MUST be written and verified to fail before implementation begins. The
+Red-Green-Refactor cycle is mandatory for all functional code. Acceptance scenarios
+defined in the specification are the authoritative source for test cases — no
+implementation is complete until its acceptance scenarios pass.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Incremental & Independent Delivery
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Each user story MUST be independently implementable, testable, and deployable as a
+standalone MVP increment. User stories MUST NOT create blocking implementation
+dependencies on one another. Every story MUST deliver observable user value on its own.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Simplicity & Maintainability
+
+Solutions MUST use the simplest approach that satisfies the stated requirements. YAGNI
+(You Aren't Gonna Need It) applies at all times. Any introduced complexity MUST be
+justified and documented in the plan's Complexity Tracking section. Abstraction is
+permitted only when duplication creates a clear maintenance burden.
+
+## Quality Standards
+
+- All specifications MUST pass the Specification Quality Checklist before proceeding to planning.
+- All plans MUST include a Constitution Check gate before Phase 0 research.
+- Functional requirements MUST be testable and unambiguous — vague language ("should", "might")
+  is not acceptable in requirements.
+- Success criteria MUST include at least one quantitative metric (time, rate, count, or percentage).
+- Every feature branch MUST have a corresponding spec file before any code is committed.
+
+## Development Workflow
+
+Feature development follows the Specify Kit workflow in order:
+
+1. `/speckit-specify` — write and validate the feature specification
+2. `/speckit-clarify` — resolve ambiguities (max 3 clarification questions)
+3. `/speckit-plan` — produce the implementation plan and design artifacts
+4. `/speckit-tasks` — generate dependency-ordered, story-grouped tasks
+5. `/speckit-implement` — execute tasks, story by story, with checkpoints
+
+All changes MUST be committed to a dedicated feature branch following sequential naming:
+`NNN-feature-name` (e.g., `001-user-auth`). Spec artifacts live under
+`specs/NNN-feature-name/`. The `CLAUDE.md` context file MUST be kept current with the
+active plan so that all agents have up-to-date project context.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices and guidelines for this
+project. Amendments require:
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+1. A documented rationale for the change (scope, security, or quality driven).
+2. A version increment following semantic versioning:
+   - **MAJOR**: Principle removal, redefinition, or backward-incompatible governance change.
+   - **MINOR**: New principle or section added, or materially expanded guidance.
+   - **PATCH**: Clarifications, wording improvements, or non-semantic refinements.
+3. Consistency propagation: all dependent templates MUST be reviewed and updated if needed.
+4. Update to `LAST_AMENDED_DATE` on the version line below.
+
+All feature planning reviews MUST verify compliance with this constitution before
+proceeding. Deviations from any principle MUST be documented in the plan's Complexity
+Tracking section with justification.
+
+**Version**: 1.0.0 | **Ratified**: 2026-05-04 | **Last Amended**: 2026-05-04
