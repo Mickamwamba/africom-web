@@ -1,4 +1,10 @@
-export type AudienceType = "ngo" | "donor" | "implementation-partner";
+export type AudienceType =
+  | "ngo"
+  | "donor"
+  | "implementation-partner"
+  | "farmers-organisation"
+  | "cooperative"
+  | "development-partner";
 
 export interface ConsultationService {
   id: string;
@@ -14,81 +20,89 @@ export const audienceLabels: Record<AudienceType, string> = {
   ngo: "NGO",
   donor: "Donor",
   "implementation-partner": "Implementation Partner",
+  "farmers-organisation": "Farmers' Organisation",
+  cooperative: "Cooperative",
+  "development-partner": "Development Partner",
 };
 
 export const services: ConsultationService[] = [
   {
-    id: "value-chain-analysis",
-    name: "Agricultural Value Chain Analysis",
+    id: "agribusiness-consultation",
+    name: "Agribusiness Consultation",
     description:
-      "We conduct end-to-end analysis of agricultural value chains — from farm-gate to final market — identifying bottlenecks, market linkage gaps, and opportunities for smallholder integration. Our findings are translated into actionable programme recommendations.",
-    targetAudience: ["ngo", "donor", "implementation-partner"],
+      "Africom International Ltd provides strategic agribusiness guidance to farmers' organisations, cooperatives, and NGOs across Tanzania and the wider East Africa region. We help clients assess market opportunities, develop business plans, strengthen governance, and navigate the agricultural value chain to improve productivity and profitability.",
+    targetAudience: ["farmers-organisation", "cooperative", "ngo"],
     valueChainTopics: [
-      "Value chain mapping and actor analysis",
-      "Market systems diagnosis",
-      "Smallholder integration pathways",
-      "Post-harvest loss assessment",
-      "Input supply chain analysis",
+      "Market opportunity assessment",
+      "Agribusiness business plan development",
+      "Cooperative governance strengthening",
+      "Value chain integration for smallholders",
+      "Input supply and post-harvest management",
     ],
     deliverables: [
-      "Value chain assessment report",
-      "Stakeholder mapping matrix",
-      "Intervention prioritisation framework",
+      "Agribusiness assessment report",
+      "Business development roadmap",
+      "Stakeholder engagement plan",
     ],
     sortOrder: 1,
   },
   {
-    id: "project-design",
-    name: "Agricultural Programme Design & Feasibility",
+    id: "trade-facilitation",
+    name: "Trade Facilitation",
     description:
-      "Africom supports donors and implementing partners in designing evidence-based agricultural programmes. We provide feasibility studies, logframes, Theory of Change development, and cost-effectiveness analysis tailored to East African contexts.",
-    targetAudience: ["donor", "implementation-partner"],
+      "We connect African agricultural produce to international markets by supporting farmers' organisations, cooperatives, and implementation partners with export readiness, buyer linkages, and trade logistics. Our established relationships with regional and international buyers help clients access higher-value markets.",
+    targetAudience: ["farmers-organisation", "cooperative", "implementation-partner"],
     valueChainTopics: [
-      "Programme logic design (ToC, logframe)",
-      "Feasibility and scoping studies",
-      "Cost-benefit and value-for-money analysis",
-      "Gender and social inclusion integration",
-      "Climate-smart agriculture mainstreaming",
+      "Export readiness assessment",
+      "Buyer-seller matchmaking and linkage",
+      "Trade documentation and compliance",
+      "Commodity price monitoring and intelligence",
+      "Trade corridor and logistics analysis",
     ],
     deliverables: [
-      "Feasibility study report",
-      "Programme design document",
-      "Results framework and indicator set",
+      "Export readiness report",
+      "Market linkage action plan",
+      "Trade facilitation framework",
     ],
     sortOrder: 2,
   },
   {
-    id: "market-linkage",
-    name: "Market Linkage & Trade Facilitation",
+    id: "capacity-building",
+    name: "Agribusiness Capacity Building",
     description:
-      "We facilitate direct connections between smallholder farmer groups, aggregators, and export-ready buyers. Our team has established relationships with regional and international off-takers across key Tanzanian commodities.",
-    targetAudience: ["ngo", "implementation-partner"],
+      "Africom International Ltd designs and delivers capacity building programmes that equip farmers' organisations, cooperatives, NGOs, and development partners with the skills and knowledge to manage agribusiness operations, improve quality standards, and achieve long-term sustainability.",
+    targetAudience: ["farmers-organisation", "cooperative", "ngo", "development-partner"],
     valueChainTopics: [
-      "Buyer-seller matchmaking",
-      "Export readiness assessment for farmer groups",
-      "Contract farming model design",
-      "Commodity price monitoring",
-      "Trade corridor analysis",
+      "Farmer business school facilitation",
+      "Quality assurance and food safety training",
+      "Financial management for agribusinesses",
+      "Leadership and cooperative governance",
+      "Digital tools for farm management",
+    ],
+    deliverables: [
+      "Training curriculum and materials",
+      "Facilitator guide and participant workbook",
+      "Post-training impact assessment",
     ],
     sortOrder: 3,
   },
   {
-    id: "monitoring-evaluation",
-    name: "Monitoring, Evaluation & Learning (MEL)",
+    id: "sustainability-initiatives",
+    name: "Sustainability Initiatives",
     description:
-      "Africom designs and implements MEL systems for agricultural development programmes, including baseline surveys, household income tracking, and outcome harvesting aligned with donor reporting requirements.",
-    targetAudience: ["ngo", "donor", "implementation-partner"],
+      "We work with NGOs, donors, and development partners to design and implement sustainability programmes in the agricultural sector — promoting eco-friendly farming practices, fair trade principles, environmental stewardship, and community empowerment across the agricultural value chain.",
+    targetAudience: ["ngo", "donor", "development-partner"],
     valueChainTopics: [
-      "MEL framework design",
-      "Baseline and endline surveys",
-      "Household income and food security measurement",
-      "Outcome harvesting and case study documentation",
-      "DMEL system setup and training",
+      "Eco-friendly and climate-smart farming practices",
+      "Fair trade certification and compliance support",
+      "Community empowerment and gender inclusion",
+      "Environmental impact assessment",
+      "Sustainability reporting and communications",
     ],
     deliverables: [
-      "MEL framework document",
-      "Baseline survey report",
-      "Quarterly progress reporting templates",
+      "Sustainability programme design document",
+      "Environmental and social impact assessment",
+      "Community engagement framework",
     ],
     sortOrder: 4,
   },

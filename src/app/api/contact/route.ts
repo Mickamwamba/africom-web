@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (!result.success) {
-    const contactEmail = process.env.CONTACT_EMAIL ?? "info@africom-exports.com";
+    const contactEmail = process.env.CONTACT_EMAIL ?? "info@africom.biz";
     return NextResponse.json(
       {
         success: false,

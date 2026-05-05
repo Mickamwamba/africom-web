@@ -15,16 +15,30 @@ test.describe("User Story 1: Export Client Discovery", () => {
     await page.goto("/exports");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-    // At least one product card must show name, origin, and characteristics
     const cards = page.getByTestId("product-card");
     await expect(cards.first()).toBeVisible();
     await expect(cards.first().getByTestId("product-origin")).toBeVisible();
     await expect(cards.first().getByTestId("product-characteristics")).toBeVisible();
   });
 
+  test("exports page shows all 5 real Africom products", async ({ page }) => {
+    await page.goto("/exports");
+    for (const name of ["Avocado", "Green Bean", "Ginger", "Garlic", "Capsicum"]) {
+      await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+    }
+  });
+
+  test("no placeholder products appear on exports page", async ({ page }) => {
+    await page.goto("/exports");
+    const content = await page.content();
+    for (const banned of ["cashew", "Cashew", "sesame", "Sesame", "pulses", "Pulses"]) {
+      expect(content).not.toContain(banned);
+    }
+  });
+
   test("exports page has a CTA linking to contact page", async ({ page }) => {
     await page.goto("/exports");
-    const contactLink = page.getByRole("link", { name: /contact|get in touch|enquire/i });
+    const contactLink = page.getByRole("link", { name: /contact|get in touch|enquire/i }).first();
     await expect(contactLink).toBeVisible();
     await contactLink.click();
     await expect(page).toHaveURL(/\/contact/);
@@ -40,7 +54,7 @@ test.describe("User Story 1: Export Client Discovery", () => {
     await page.getByLabel(/organisation|organization/i).fill("Global Grains Ltd");
     await page.getByLabel(/email/i).fill("jane@globalgrains.com");
     await page.getByLabel(/service of interest/i).selectOption("export");
-    await page.getByLabel(/message/i).fill("Interested in sourcing cashew nuts for European distribution.");
+    await page.getByLabel(/message/i).fill("Interested in sourcing avocados and green beans for European distribution.");
 
     await page.getByRole("button", { name: /send|submit/i }).click();
     await expect(page.getByTestId("form-success")).toBeVisible({ timeout: 10000 });
@@ -56,9 +70,8 @@ test.describe("User Story 1: Export Client Discovery", () => {
     await expect(page.getByTestId("error-message")).toBeVisible();
   });
 
-  test("about section shows US registration status", async ({ page }) => {
+  test("about section shows company registration or location status", async ({ page }) => {
     await page.goto("/about");
-    await expect(page.getByText(/registered/i)).toBeVisible();
-    await expect(page.getByText(/united states|usa|us-registered/i)).toBeVisible();
+    await expect(page.getByText(/tanzania|usa|offices/i).first()).toBeVisible();
   });
 });

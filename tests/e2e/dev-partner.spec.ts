@@ -23,6 +23,18 @@ test.describe("User Story 2: Development Partner Discovery", () => {
     await expect(cards.first().getByTestId("service-topics")).toBeVisible();
   });
 
+  test("consultation page shows all 4 real Africom service lines", async ({ page }) => {
+    await page.goto("/consultation");
+    for (const name of [
+      "Agribusiness Consultation",
+      "Trade Facilitation",
+      "Agribusiness Capacity Building",
+      "Sustainability Initiatives",
+    ]) {
+      await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+    }
+  });
+
   test("consultation services are visually distinct from export products", async ({
     page,
   }) => {
@@ -33,7 +45,7 @@ test.describe("User Story 2: Development Partner Discovery", () => {
 
   test("consultation page has a CTA linking to contact form", async ({ page }) => {
     await page.goto("/consultation");
-    const contactLink = page.getByRole("link", { name: /contact|get in touch|enquire/i });
+    const contactLink = page.getByRole("link", { name: /contact|get in touch|enquire/i }).first();
     await expect(contactLink).toBeVisible();
     await contactLink.click();
     await expect(page).toHaveURL(/\/contact/);

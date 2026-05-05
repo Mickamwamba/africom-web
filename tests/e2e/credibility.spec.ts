@@ -7,23 +7,24 @@ test.describe("User Story 3: Company Credibility Research", () => {
     await expect(page.getByText(/mission/i)).toBeVisible();
   });
 
-  test("about page shows US registration status", async ({ page }) => {
+  test("about page shows company location status", async ({ page }) => {
     await page.goto("/about");
-    await expect(page.getByText(/registered/i)).toBeVisible();
-    await expect(page.getByText(/united states|usa|us-registered/i)).toBeVisible();
+    await expect(page.getByText(/tanzania|usa|offices/i).first()).toBeVisible();
   });
 
   test("about page includes a contact link", async ({ page }) => {
     await page.goto("/about");
-    const contactLink = page.getByRole("link", { name: /contact/i });
+    const contactLink = page.getByRole("link", { name: /contact/i }).first();
     await expect(contactLink).toBeVisible();
   });
 
-  test("credibility section is absent when no indicators are configured", async ({
+  test("homepage credibility section shows stat and testimonial", async ({
     page,
   }) => {
     await page.goto("/");
-    await expect(page.getByTestId("credibility-section")).not.toBeVisible();
+    await expect(page.getByTestId("credibility-section")).toBeVisible();
+    await expect(page.getByText(/5 innovative agribusiness initiatives/i)).toBeVisible();
+    await expect(page.getByText(/oliver hartman/i)).toBeVisible();
   });
 
   test("all 5 pages reachable within 2 clicks from homepage", async ({ page }) => {
@@ -37,7 +38,7 @@ test.describe("User Story 3: Company Credibility Research", () => {
 
   test("404 page shows custom message and homepage link", async ({ page }) => {
     await page.goto("/this-page-does-not-exist");
-    await expect(page.getByText(/404|not found/i)).toBeVisible();
-    await expect(page.getByRole("link", { name: /home|return/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /404|not found/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /home|return/i }).first()).toBeVisible();
   });
 });

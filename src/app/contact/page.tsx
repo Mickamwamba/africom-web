@@ -20,37 +20,53 @@ export default function ContactPage() {
           </p>
 
           {/* Contact details */}
-          <div className="bg-brand-cream rounded-xl p-6 mb-8 flex flex-col sm:flex-row gap-6">
-            <div>
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
-                Email
-              </p>
-              <a
-                href={`mailto:${company.contactEmail}`}
-                className="text-brand-green font-medium hover:underline"
-              >
-                {company.contactEmail}
-              </a>
-            </div>
-            {company.contactPhone && (
+          <div className="bg-brand-cream rounded-xl p-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
               <div>
                 <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
-                  Phone
+                  Email
                 </p>
                 <a
-                  href={`tel:${company.contactPhone}`}
+                  href={`mailto:${company.contactEmail}`}
                   className="text-brand-green font-medium hover:underline"
                 >
-                  {company.contactPhone}
+                  {company.contactEmail}
                 </a>
               </div>
-            )}
-            <div>
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
-                Address
-              </p>
-              <p className="text-gray-700 text-sm">{company.headquartersAddress}</p>
+              {company.phones && company.phones.length > 0 && (
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                    Phone
+                  </p>
+                  <div className="space-y-1">
+                    {company.phones.map((phone) => (
+                      <a
+                        key={phone}
+                        href={`tel:${phone}`}
+                        className="block text-brand-green font-medium hover:underline"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
+            {company.offices && company.offices.length > 0 && (
+              <div>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                  Our Offices
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {company.offices.map((office) => (
+                    <div key={office.label}>
+                      <p className="text-xs font-medium text-gray-600 mb-0.5">{office.label}</p>
+                      <p className="text-gray-700 text-sm">{office.address}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <InquiryForm />

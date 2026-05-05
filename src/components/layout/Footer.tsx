@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <p className="text-white font-bold text-lg mb-2">Africom</p>
+            <p className="text-white font-bold text-lg mb-2">{company.legalName}</p>
             <p className="text-sm leading-relaxed text-gray-400">
               {company.tagline}
             </p>
@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-10 pt-6 text-xs text-gray-600 text-center">
-          © {year} Africom. All rights reserved.
+          © {year} {company.legalName}. All rights reserved.
         </div>
       </div>
     </footer>

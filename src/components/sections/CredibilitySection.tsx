@@ -11,6 +11,8 @@ export default function CredibilitySection({ indicators }: Props) {
   const partners = indicators.filter((i) => i.type === "partner-logo");
   const certifications = indicators.filter((i) => i.type === "certification");
   const highlights = indicators.filter((i) => i.type === "project-highlight");
+  const stats = indicators.filter((i) => i.type === "stat");
+  const testimonials = indicators.filter((i) => i.type === "testimonial");
 
   return (
     <section data-testid="credibility-section" className="section-padding bg-white border-t border-gray-100">
@@ -18,6 +20,43 @@ export default function CredibilitySection({ indicators }: Props) {
         <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">
           Trusted by Leading Organisations
         </h2>
+
+        {stats.length > 0 && (
+          <div className="mb-12 flex flex-wrap justify-center gap-8">
+            {stats.map((s) => (
+              <div key={s.id} className="text-center bg-brand-cream rounded-2xl px-10 py-8">
+                <p className="text-4xl md:text-5xl font-bold text-brand-green mb-2">
+                  {s.name}
+                </p>
+                {s.description && (
+                  <p className="text-gray-600 text-sm max-w-xs">{s.description}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {testimonials.length > 0 && (
+          <div className="mb-12">
+            <div className="flex flex-wrap justify-center gap-6">
+              {testimonials.map((t) => (
+                <blockquote
+                  key={t.id}
+                  className="bg-gray-50 rounded-2xl p-8 max-w-lg border-l-4 border-brand-green"
+                >
+                  {t.quote && (
+                    <p className="text-gray-700 text-lg leading-relaxed italic mb-4">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                  )}
+                  <footer className="text-sm font-semibold text-gray-900">
+                    — {t.name}
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        )}
 
         {partners.length > 0 && (
           <div className="mb-10">

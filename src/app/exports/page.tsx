@@ -5,9 +5,9 @@ import { products } from "@/content/products";
 import { company } from "@/content/company";
 
 export const metadata: Metadata = {
-  title: "Export Products",
+  title: "Export Products — Africom International Ltd",
   description:
-    "Explore Africom's range of Tanzanian agricultural exports — cashew nuts, sesame seeds, coffee, and pulses — delivered to regional and international markets.",
+    "Explore Africom International Ltd's Tanzanian horticultural exports — avocados, green beans, ginger, garlic, and capsicum — delivered to regional and international markets.",
 };
 
 export default function ExportsPage() {

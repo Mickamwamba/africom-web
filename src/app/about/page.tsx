@@ -5,9 +5,9 @@ import { company } from "@/content/company";
 import { credibilityIndicators } from "@/content/credibility";
 
 export const metadata: Metadata = {
-  title: "About Africom",
+  title: "About Africom International Ltd",
   description:
-    "Learn about Africom — a US-registered business exporting Tanzanian agricultural products and providing agricultural development consultation across East Africa.",
+    "Learn about Africom International Ltd — a Tanzania-based agribusiness enterprise exporting premium horticultural produce and providing agribusiness consultation across Africa.",
 };
 
 export default function AboutPage() {
@@ -43,6 +43,14 @@ export default function AboutPage() {
               <p className="text-gray-600 leading-relaxed">{company.mission}</p>
             </div>
 
+            {/* Vision */}
+            {company.vision && (
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h2>
+                <p className="text-gray-600 leading-relaxed">{company.vision}</p>
+              </div>
+            )}
+
             {/* Key facts */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Key Facts</h2>
@@ -74,6 +82,23 @@ export default function AboutPage() {
               </dl>
             </div>
           </div>
+
+          {/* Core values */}
+          {company.coreValues && company.coreValues.length > 0 && (
+            <div className="mt-16">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Core Values</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {company.coreValues.map((value) => (
+                  <div
+                    key={value}
+                    className="bg-brand-cream rounded-xl p-4 text-center"
+                  >
+                    <p className="font-semibold text-brand-green text-sm">{value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Services summary */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">

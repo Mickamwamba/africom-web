@@ -1,4 +1,9 @@
-export type IndicatorType = "partner-logo" | "certification" | "project-highlight";
+export type IndicatorType =
+  | "partner-logo"
+  | "certification"
+  | "project-highlight"
+  | "stat"
+  | "testimonial";
 
 export interface CredibilityIndicator {
   id: string;
@@ -7,9 +12,24 @@ export interface CredibilityIndicator {
   description?: string;
   imageUrl?: string;
   year?: number;
+  quote?: string;
   sortOrder: number;
 }
 
-// Populate only when Africom supplies logos, certifications, or project highlights.
-// Leave empty to omit the CredibilitySection from all pages.
-export const credibilityIndicators: CredibilityIndicator[] = [];
+export const credibilityIndicators: CredibilityIndicator[] = [
+  {
+    id: "stat-agribusiness-initiatives",
+    type: "stat",
+    name: "5 Innovative Agribusiness Initiatives",
+    description: "Programmes driving sustainable growth across the agricultural value chain",
+    sortOrder: 1,
+  },
+  {
+    id: "testimonial-oliver-hartman",
+    type: "testimonial",
+    name: "Oliver Hartman",
+    quote:
+      "Outstanding service and deep knowledge of the agricultural value chain — Africom delivered beyond our expectations.",
+    sortOrder: 2,
+  },
+];

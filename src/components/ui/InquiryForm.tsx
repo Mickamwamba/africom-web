@@ -188,8 +188,8 @@ export default function InquiryForm({ defaultService }: Props) {
       {status === "error" && (
         <div className="rounded-lg bg-red-50 border border-red-200 p-4 text-sm text-red-700">
           Unable to send your message at this time. Please email us directly at{" "}
-          <a href="mailto:info@africom-exports.com" className="underline">
-            info@africom-exports.com
+          <a href="mailto:info@africom.biz" className="underline">
+            info@africom.biz
           </a>
           .
         </div>
