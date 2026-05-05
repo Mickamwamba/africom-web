@@ -5,7 +5,7 @@ export interface ProductCategory {
   originRegion: string;
   keyCharacteristics: string[];
   targetMarkets: string[];
-  imageUrl?: string;
+  image?: string;
   sortOrder: number;
 }
 
@@ -24,6 +24,7 @@ export const products: ProductCategory[] = [
       "Sourced directly from Tanzanian farms",
     ],
     targetMarkets: ["Europe", "Middle East", "East Africa"],
+    image: "/images/products/avocado.jpg",
     sortOrder: 1,
   },
   {
@@ -40,6 +41,7 @@ export const products: ProductCategory[] = [
       "Pre-cooled and vacuum-packed on request",
     ],
     targetMarkets: ["Europe", "Middle East", "East Africa"],
+    image: "/images/products/green-bean.jpg",
     sortOrder: 2,
   },
   {
@@ -56,6 +58,7 @@ export const products: ProductCategory[] = [
       "Available in bulk and retail packs",
     ],
     targetMarkets: ["Asia", "Middle East", "Europe"],
+    image: "/images/products/ginger.jpg",
     sortOrder: 3,
   },
   {
@@ -72,6 +75,7 @@ export const products: ProductCategory[] = [
       "Sorted and graded to buyer specifications",
     ],
     targetMarkets: ["Middle East", "Asia", "Europe"],
+    image: "/images/products/garlic.jpg",
     sortOrder: 4,
   },
   {
@@ -88,6 +92,7 @@ export const products: ProductCategory[] = [
       "Available year-round with coordinated farm scheduling",
     ],
     targetMarkets: ["Europe", "Middle East", "East Africa"],
+    image: "/images/products/capsicum.jpg",
     sortOrder: 5,
   },
 ];

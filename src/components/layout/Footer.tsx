@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { company } from "@/content/company";
+import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -10,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <p className="text-white font-bold text-lg mb-2">{company.legalName}</p>
+            <Logo variant="white" width={140} height={42} className="mb-2" />
             <p className="text-sm leading-relaxed text-gray-400">
               {company.tagline}
             </p>
@@ -30,7 +31,7 @@ export default function Footer() {
                 { href: "/contact", label: "Contact Us" },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="hover:text-brand-green-light transition-colors">
+                  <Link href={href} className="hover:text-brand-organic-green transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -48,7 +49,7 @@ export default function Footer() {
                 <p>
                   <a
                     href={`mailto:${company.contactEmail}`}
-                    className="hover:text-brand-green-light transition-colors"
+                    className="hover:text-brand-organic-green transition-colors"
                   >
                     {company.contactEmail}
                   </a>
@@ -58,7 +59,7 @@ export default function Footer() {
                 <p>
                   <a
                     href={`tel:${company.contactPhone}`}
-                    className="hover:text-brand-green-light transition-colors"
+                    className="hover:text-brand-organic-green transition-colors"
                   >
                     {company.contactPhone}
                   </a>
@@ -78,7 +79,7 @@ export default function Footer() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs uppercase tracking-wide hover:text-brand-green-light transition-colors"
+                    className="text-xs uppercase tracking-wide hover:text-brand-organic-green transition-colors"
                     aria-label={platform}
                   >
                     {platform}

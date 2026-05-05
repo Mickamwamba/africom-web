@@ -25,7 +25,7 @@ export default function CredibilitySection({ indicators }: Props) {
           <div className="mb-12 flex flex-wrap justify-center gap-8">
             {stats.map((s) => (
               <div key={s.id} className="text-center bg-brand-cream rounded-2xl px-10 py-8">
-                <p className="text-4xl md:text-5xl font-bold text-brand-green mb-2">
+                <p className="text-4xl md:text-5xl font-bold text-brand-earth-brown mb-2">
                   {s.name}
                 </p>
                 {s.description && (
@@ -42,7 +42,7 @@ export default function CredibilitySection({ indicators }: Props) {
               {testimonials.map((t) => (
                 <blockquote
                   key={t.id}
-                  className="bg-gray-50 rounded-2xl p-8 max-w-lg border-l-4 border-brand-green"
+                  className="bg-gray-50 rounded-2xl p-8 max-w-lg border-l-4 border-brand-earth-brown"
                 >
                   {t.quote && (
                     <p className="text-gray-700 text-lg leading-relaxed italic mb-4">

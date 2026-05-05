@@ -20,11 +20,11 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-brand-green text-white hover:bg-green-800 focus:ring-brand-green",
+    "bg-brand-earth-brown text-white hover:bg-amber-900 focus:ring-brand-earth-brown",
   secondary:
-    "bg-brand-gold text-white hover:bg-yellow-600 focus:ring-brand-gold",
+    "bg-brand-organic-green text-white hover:bg-lime-700 focus:ring-brand-organic-green",
   outline:
-    "border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white focus:ring-brand-green",
+    "border-2 border-brand-earth-brown text-brand-earth-brown hover:bg-brand-earth-brown hover:text-white focus:ring-brand-earth-brown",
 };
 
 const sizes: Record<Size, string> = {

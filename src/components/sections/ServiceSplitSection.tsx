@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 export default function ServiceSplitSection() {
@@ -17,7 +18,16 @@ export default function ServiceSplitSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Export */}
           <div data-testid="service-export-block" className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center mb-5">
+            <div className="relative h-48 rounded-xl overflow-hidden mb-6">
+              <Image
+                src="/images/sections/hero.jpg"
+                alt="Cargo container ship — global agricultural trade"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="w-12 h-12 bg-brand-earth-brown rounded-xl flex items-center justify-center mb-5">
               <span className="text-white text-2xl" aria-hidden="true">🌾</span>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -36,7 +46,7 @@ export default function ServiceSplitSection() {
                 "Reliable logistics and documentation support",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
-                  <span className="text-brand-green mt-0.5 flex-shrink-0">✓</span>
+                  <span className="text-brand-earth-brown mt-0.5 flex-shrink-0">✓</span>
                   {item}
                 </li>
               ))}
@@ -48,7 +58,7 @@ export default function ServiceSplitSection() {
 
           {/* Consultation */}
           <div data-testid="service-consultation-block" className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-brand-gold rounded-xl flex items-center justify-center mb-5">
+            <div className="w-12 h-12 bg-brand-organic-green rounded-xl flex items-center justify-center mb-5">
               <span className="text-white text-2xl" aria-hidden="true">📊</span>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -67,7 +77,7 @@ export default function ServiceSplitSection() {
                 "Monitoring, evaluation, and learning (MEL)",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
-                  <span className="text-brand-gold mt-0.5 flex-shrink-0">✓</span>
+                  <span className="text-brand-organic-green mt-0.5 flex-shrink-0">✓</span>
                   {item}
                 </li>
               ))}

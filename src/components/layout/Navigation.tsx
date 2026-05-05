@@ -24,9 +24,9 @@ export default function Navigation() {
           <li key={href}>
             <Link
               href={href}
-              className={`text-sm font-medium transition-colors hover:text-brand-green ${
+              className={`text-sm font-medium transition-colors hover:text-brand-earth-brown ${
                 pathname === href
-                  ? "text-brand-green border-b-2 border-brand-green pb-1"
+                  ? "text-brand-earth-brown border-b-2 border-brand-earth-brown pb-1"
                   : "text-gray-700"
               }`}
             >
@@ -42,7 +42,7 @@ export default function Navigation() {
           onClick={() => setOpen(!open)}
           aria-label="Toggle navigation menu"
           aria-expanded={open}
-          className="p-2 text-gray-700 hover:text-brand-green"
+          className="p-2 text-gray-700 hover:text-brand-earth-brown"
         >
           <span className="block w-6 h-0.5 bg-current mb-1" />
           <span className="block w-6 h-0.5 bg-current mb-1" />
@@ -57,8 +57,8 @@ export default function Navigation() {
                   <Link
                     href={href}
                     onClick={() => setOpen(false)}
-                    className={`block px-6 py-3 text-sm font-medium transition-colors hover:bg-brand-cream hover:text-brand-green ${
-                      pathname === href ? "text-brand-green bg-brand-cream" : "text-gray-700"
+                    className={`block px-6 py-3 text-sm font-medium transition-colors hover:bg-brand-cream hover:text-brand-earth-brown ${
+                      pathname === href ? "text-brand-earth-brown bg-brand-cream" : "text-gray-700"
                     }`}
                   >
                     {label}

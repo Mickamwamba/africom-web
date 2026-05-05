@@ -34,7 +34,7 @@ export default function ConsultationServiceCard({ service }: Props) {
         <ul className="space-y-1">
           {service.valueChainTopics.map((topic) => (
             <li key={topic} className="flex items-start gap-2 text-sm text-gray-700">
-              <span className="text-brand-gold mt-0.5 flex-shrink-0">✓</span>
+              <span className="text-brand-organic-green mt-0.5 flex-shrink-0">✓</span>
               {topic}
             </li>
           ))}

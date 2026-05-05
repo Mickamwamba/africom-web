@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function FarmPartnershipsSection() {
   const pillars = [
     {
@@ -23,8 +25,15 @@ export default function FarmPartnershipsSection() {
   ];
 
   return (
-    <section className="section-padding bg-brand-green text-white">
-      <div className="container-lg">
+    <section className="section-padding relative overflow-hidden text-white">
+      <Image
+        src="/images/sections/farm-partnerships.jpg"
+        alt="Farm workers harvesting crops in a green field"
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-brand-earth-brown/75" />
+      <div className="relative z-10 container-lg">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Farm Partnerships

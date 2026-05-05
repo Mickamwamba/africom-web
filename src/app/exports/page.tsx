@@ -21,7 +21,7 @@ export default function ExportsPage() {
       <div className="container-lg">
         {/* Header */}
         <div className="max-w-3xl mb-12">
-          <p className="text-brand-green font-semibold text-sm uppercase tracking-wide mb-3">
+          <p className="text-brand-earth-brown font-semibold text-sm uppercase tracking-wide mb-3">
             Agricultural Exports
           </p>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -44,7 +44,7 @@ export default function ExportsPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-brand-green rounded-2xl p-8 md:p-12 text-white text-center">
+        <div className="bg-brand-earth-brown rounded-2xl p-8 md:p-12 text-white text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Source from Tanzania?
           </h2>

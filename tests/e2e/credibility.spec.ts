@@ -27,6 +27,11 @@ test.describe("User Story 3: Company Credibility Research", () => {
     await expect(page.getByText(/oliver hartman/i)).toBeVisible();
   });
 
+  test("site header displays official Africom logo image", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("img", { name: /africom international/i }).first()).toBeVisible();
+  });
+
   test("all 5 pages reachable within 2 clicks from homepage", async ({ page }) => {
     const routes = ["/about", "/exports", "/consultation", "/contact"];
     for (const route of routes) {

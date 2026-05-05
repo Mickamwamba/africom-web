@@ -36,6 +36,16 @@ test.describe("User Story 1: Export Client Discovery", () => {
     }
   });
 
+  test("product cards each display a photograph", async ({ page }) => {
+    await page.goto("/exports");
+    const cards = page.getByTestId("product-card");
+    const count = await cards.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      await expect(cards.nth(i).locator("img").first()).toBeVisible();
+    }
+  });
+
   test("exports page has a CTA linking to contact page", async ({ page }) => {
     await page.goto("/exports");
     const contactLink = page.getByRole("link", { name: /contact|get in touch|enquire/i }).first();

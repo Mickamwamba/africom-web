@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import CredibilitySection from "@/components/sections/CredibilitySection";
 import { company } from "@/content/company";
@@ -21,7 +22,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-brand-cream section-padding">
         <div className="container-lg max-w-4xl">
-          <p className="text-brand-green font-semibold text-sm uppercase tracking-wide mb-3">
+          <p className="text-brand-earth-brown font-semibold text-sm uppercase tracking-wide mb-3">
             About Us
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -36,11 +37,21 @@ export default function AboutPage() {
       {/* Details */}
       <section className="section-padding">
         <div className="container-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-center">
             {/* Mission */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
               <p className="text-gray-600 leading-relaxed">{company.mission}</p>
+            </div>
+
+            {/* Community photo */}
+            <div className="relative h-72 md:h-full rounded-xl overflow-hidden hidden md:block">
+              <Image
+                src="/images/sections/about-community.jpg"
+                alt="African hands forming a star — community and collaboration"
+                fill
+                className="object-cover"
+              />
             </div>
 
             {/* Vision */}
@@ -93,7 +104,7 @@ export default function AboutPage() {
                     key={value}
                     className="bg-brand-cream rounded-xl p-4 text-center"
                   >
-                    <p className="font-semibold text-brand-green text-sm">{value}</p>
+                    <p className="font-semibold text-brand-earth-brown text-sm">{value}</p>
                   </div>
                 ))}
               </div>
@@ -102,25 +113,25 @@ export default function AboutPage() {
 
           {/* Services summary */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-brand-green text-white rounded-2xl p-8">
+            <div className="bg-brand-earth-brown text-white rounded-2xl p-8">
               <div className="text-3xl mb-4" aria-hidden="true">🌾</div>
               <h3 className="text-xl font-bold mb-2">Agricultural Exports</h3>
               <p className="text-green-100 text-sm leading-relaxed mb-4">
                 Premium Tanzanian agricultural commodities exported to regional and
                 international markets with reliable logistics and documentation.
               </p>
-              <Button href="/exports" variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-brand-green">
+              <Button href="/exports" variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-brand-earth-brown">
                 View Products
               </Button>
             </div>
-            <div className="bg-brand-gold text-white rounded-2xl p-8">
+            <div className="bg-brand-organic-green text-white rounded-2xl p-8">
               <div className="text-3xl mb-4" aria-hidden="true">📊</div>
               <h3 className="text-xl font-bold mb-2">Development Consultation</h3>
               <p className="text-yellow-100 text-sm leading-relaxed mb-4">
                 Expert support for NGOs, donors, and implementation partners across
                 agricultural value chain topics in East Africa.
               </p>
-              <Button href="/consultation" variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-brand-gold">
+              <Button href="/consultation" variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-brand-organic-green">
                 View Services
               </Button>
             </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ProductCategory } from "@/content/products";
 
 interface Props {
@@ -10,11 +11,22 @@ export default function ProductCategoryCard({ product }: Props) {
       data-testid="product-card"
       className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col gap-4"
     >
+      {product.image && (
+        <div className="relative aspect-[4/3] rounded-lg overflow-hidden -mx-6 -mt-6 mb-4">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        </div>
+      )}
       <div>
         <h3 className="text-xl font-semibold text-gray-900 mb-1">{product.name}</h3>
         <p
           data-testid="product-origin"
-          className="text-sm text-brand-green font-medium"
+          className="text-sm text-brand-earth-brown font-medium"
         >
           Origin: {product.originRegion}
         </p>
@@ -29,7 +41,7 @@ export default function ProductCategoryCard({ product }: Props) {
         <ul className="space-y-1">
           {product.keyCharacteristics.map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
-              <span className="text-brand-green mt-0.5 flex-shrink-0">✓</span>
+              <span className="text-brand-earth-brown mt-0.5 flex-shrink-0">✓</span>
               {item}
             </li>
           ))}
@@ -44,7 +56,7 @@ export default function ProductCategoryCard({ product }: Props) {
           {product.targetMarkets.map((market) => (
             <span
               key={market}
-              className="bg-brand-cream text-brand-earth text-xs font-medium px-2 py-1 rounded-full"
+              className="bg-brand-cream text-brand-earth-brown text-xs font-medium px-2 py-1 rounded-full"
             >
               {market}
             </span>

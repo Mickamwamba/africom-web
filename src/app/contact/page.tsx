@@ -28,7 +28,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href={`mailto:${company.contactEmail}`}
-                  className="text-brand-green font-medium hover:underline"
+                  className="text-brand-earth-brown font-medium hover:underline"
                 >
                   {company.contactEmail}
                 </a>
@@ -43,7 +43,7 @@ export default function ContactPage() {
                       <a
                         key={phone}
                         href={`tel:${phone}`}
-                        className="block text-brand-green font-medium hover:underline"
+                        className="block text-brand-earth-brown font-medium hover:underline"
                       >
                         {phone}
                       </a>

@@ -83,7 +83,7 @@ export default function InquiryForm({ defaultService }: Props) {
           autoComplete="name"
           value={form.name ?? ""}
           onChange={handleChange}
-          className={`w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green ${
+          className={`w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-earth-brown ${
             errors.name ? "border-red-400 bg-red-50" : "border-gray-300"
           }`}
           placeholder="Your full name"
@@ -107,7 +107,7 @@ export default function InquiryForm({ defaultService }: Props) {
           autoComplete="organization"
           value={form.organization ?? ""}
           onChange={handleChange}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-earth-brown"
           placeholder="Company or organisation name"
         />
       </div>
@@ -124,7 +124,7 @@ export default function InquiryForm({ defaultService }: Props) {
           autoComplete="email"
           value={form.email ?? ""}
           onChange={handleChange}
-          className={`w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green ${
+          className={`w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-earth-brown ${
             errors.email ? "border-red-400 bg-red-50" : "border-gray-300"
           }`}
           placeholder="you@example.com"
@@ -146,7 +146,7 @@ export default function InquiryForm({ defaultService }: Props) {
           name="serviceOfInterest"
           value={form.serviceOfInterest ?? ""}
           onChange={handleChange}
-          className={`w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green ${
+          className={`w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-earth-brown ${
             errors.serviceOfInterest ? "border-red-400 bg-red-50" : "border-gray-300"
           }`}
         >
@@ -173,7 +173,7 @@ export default function InquiryForm({ defaultService }: Props) {
           rows={5}
           value={form.message ?? ""}
           onChange={handleChange}
-          className={`w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green resize-vertical ${
+          className={`w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-earth-brown resize-vertical ${
             errors.message ? "border-red-400 bg-red-50" : "border-gray-300"
           }`}
           placeholder="Tell us about your requirements…"
