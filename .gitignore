@@ -39,3 +39,6 @@ Thumbs.db
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+africomassets
+Africom Website Content.docx.pdf
+.claude/settings.local.json
