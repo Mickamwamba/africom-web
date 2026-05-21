@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { validateInquiryForm } from "@/lib/formValidation";
-import { sendInquiryEmail } from "@/lib/email";
+import { createClient } from "@/lib/supabase/server";
 
 export async function POST(req: NextRequest) {
   const contentType = req.headers.get("content-type") ?? "";
@@ -45,24 +45,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: false, errors }, { status: 400 });
   }
 
-  const result = await sendInquiryEmail({
-    name: (data.name as string).trim(),
+  const supabase = await createClient();
+  const { error } = await supabase.from("inquiries").insert({
+    sender_name: (data.name as string).trim(),
     email: (data.email as string).trim(),
-    organization:
-      typeof data.organization === "string" && data.organization.trim()
-        ? data.organization.trim()
-        : undefined,
-    serviceOfInterest: data.serviceOfInterest as "export" | "consultation" | "other",
+    service_of_interest: data.serviceOfInterest as string,
     message: (data.message as string).trim(),
   });
 
-  if (!result.success) {
-    const contactEmail = process.env.CONTACT_EMAIL ?? "info@africom.biz";
+  if (error) {
+    console.error("[contact/route] Failed to save inquiry:", error);
     return NextResponse.json(
-      {
-        success: false,
-        message: `Unable to send your inquiry at this time. Please email us directly at ${contactEmail}.`,
-      },
+      { success: false, message: "Unable to submit your inquiry. Please try again." },
       { status: 500 }
     );
   }

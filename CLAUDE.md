@@ -1,5 +1,5 @@
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read the current plan at
-`specs/003-brand-assets/plan.md`.
+`specs/004-events-trainings-admin/plan.md`.
 <!-- SPECKIT END -->
