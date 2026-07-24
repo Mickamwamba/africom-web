@@ -34,8 +34,8 @@ export default function ServiceSplitSection() {
               Agricultural Exports
             </h3>
             <p className="text-gray-600 leading-relaxed mb-6">
-              We export premium Tanzanian horticultural produce — avocados, green beans,
-              ginger, garlic, and capsicum — to regional and international buyers. From
+              We export premium Tanzanian horticultural produce — African Bird Eye Chili,
+              avocados, green beans, ginger, and garlic — to regional and international buyers. From
               farm-gate sourcing to shipment, we handle the full export process.
             </p>
             <ul className="space-y-2 mb-8">

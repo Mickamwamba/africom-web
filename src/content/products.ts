@@ -11,6 +11,23 @@ export interface ProductCategory {
 
 export const products: ProductCategory[] = [
   {
+    id: "abec",
+    name: "African Bird Eye Chili (ABEC)",
+    description:
+      "African Bird Eye Chili (ABEC) is Africom International Ltd's flagship export — a small but intensely hot chilli sought after by international spice buyers, oleoresin extractors, and hot sauce manufacturers. Grown by Tanzanian smallholder farmers and sun-dried to specification, ABEC is our highest-volume export product.",
+    originRegion: "Tanzania",
+    keyCharacteristics: [
+      "Flagship product — our highest export volume",
+      "Intense heat with high capsaicin content",
+      "Sun-dried whole chillies, cleaned and graded",
+      "Controlled moisture content for extended shelf life",
+      "Packed in food-grade bulk bags to buyer specification",
+    ],
+    targetMarkets: ["Europe", "Middle East", "Asia"],
+    image: "/images/products/capsicum.jpg",
+    sortOrder: 1,
+  },
+  {
     id: "avocado",
     name: "Avocado",
     description:
@@ -25,7 +42,7 @@ export const products: ProductCategory[] = [
     ],
     targetMarkets: ["Europe", "Middle East", "East Africa"],
     image: "/images/products/avocado.jpg",
-    sortOrder: 1,
+    sortOrder: 2,
   },
   {
     id: "green-bean",
@@ -42,7 +59,7 @@ export const products: ProductCategory[] = [
     ],
     targetMarkets: ["Europe", "Middle East", "East Africa"],
     image: "/images/products/green-bean.jpg",
-    sortOrder: 2,
+    sortOrder: 3,
   },
   {
     id: "ginger",
@@ -59,7 +76,7 @@ export const products: ProductCategory[] = [
     ],
     targetMarkets: ["Asia", "Middle East", "Europe"],
     image: "/images/products/ginger.jpg",
-    sortOrder: 3,
+    sortOrder: 4,
   },
   {
     id: "garlic",
@@ -76,23 +93,6 @@ export const products: ProductCategory[] = [
     ],
     targetMarkets: ["Middle East", "Asia", "Europe"],
     image: "/images/products/garlic.jpg",
-    sortOrder: 4,
-  },
-  {
-    id: "capsicum",
-    name: "Capsicum",
-    description:
-      "From sweet bell peppers to hot chilli varieties, Africom International Ltd supplies fresh and dried Tanzanian capsicum to regional markets and international spice buyers, offering flexibility in heat level, variety, and pack format.",
-    originRegion: "Tanzania",
-    keyCharacteristics: [
-      "Sweet bell pepper and hot chilli varieties",
-      "Fresh and dried (whole, crushed, powder) options",
-      "Bright colour and consistent heat level",
-      "Packed to buyer specification — bulk or cartons",
-      "Available year-round with coordinated farm scheduling",
-    ],
-    targetMarkets: ["Europe", "Middle East", "East Africa"],
-    image: "/images/products/capsicum.jpg",
     sortOrder: 5,
   },
 ];

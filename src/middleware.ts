@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
-  ],
+  // Auth session refresh is only needed for the admin area. Running it on every
+  // public route makes navigation block on a Supabase round-trip per click.
+  matcher: ["/admin/:path*"],
 };
