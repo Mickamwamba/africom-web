@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-type Variant = "primary" | "secondary" | "outline";
+type Variant = "primary" | "secondary" | "outline" | "outline-white";
 type Size = "sm" | "md" | "lg";
 
 interface ButtonProps {
@@ -25,6 +25,10 @@ const variants: Record<Variant, string> = {
     "bg-brand-organic-green text-white hover:bg-lime-700 focus:ring-brand-organic-green",
   outline:
     "border-2 border-brand-earth-brown text-brand-earth-brown hover:bg-brand-earth-brown hover:text-white focus:ring-brand-earth-brown",
+  // For use on dark/coloured backgrounds. No hover:text-* here so callers set the
+  // hover text colour via className without a conflicting override.
+  "outline-white":
+    "border-2 border-white text-white hover:bg-white focus:ring-white",
 };
 
 const sizes: Record<Size, string> = {

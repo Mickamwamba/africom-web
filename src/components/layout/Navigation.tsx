@@ -9,6 +9,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/exports", label: "Export Products" },
   { href: "/consultation", label: "Consultation" },
+  { href: "/events", label: "Events & Trainings" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -25,7 +26,7 @@ export default function Navigation() {
             <Link
               href={href}
               className={`text-sm font-medium transition-colors hover:text-brand-earth-brown ${
-                pathname === href
+                href === "/" ? pathname === href : pathname.startsWith(href)
                   ? "text-brand-earth-brown border-b-2 border-brand-earth-brown pb-1"
                   : "text-gray-700"
               }`}
@@ -58,7 +59,9 @@ export default function Navigation() {
                     href={href}
                     onClick={() => setOpen(false)}
                     className={`block px-6 py-3 text-sm font-medium transition-colors hover:bg-brand-cream hover:text-brand-earth-brown ${
-                      pathname === href ? "text-brand-earth-brown bg-brand-cream" : "text-gray-700"
+                      (href === "/" ? pathname === href : pathname.startsWith(href))
+                        ? "text-brand-earth-brown bg-brand-cream"
+                        : "text-gray-700"
                     }`}
                   >
                     {label}

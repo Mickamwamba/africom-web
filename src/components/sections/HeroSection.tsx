@@ -31,9 +31,9 @@ export default function HeroSection() {
               </Button>
               <Button
                 href="/consultation"
-                variant="outline"
+                variant="outline-white"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-brand-earth-brown"
+                className="hover:text-brand-earth-brown"
               >
                 Consultation Services
               </Button>

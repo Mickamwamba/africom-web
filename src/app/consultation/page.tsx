@@ -78,7 +78,7 @@ export default function ConsultationPage() {
             Tell us about your programme or project and we will discuss how Africom can
             support your objectives. We respond to all enquiries within 2 business days.
           </p>
-          <Button href="/contact" variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-organic-green">
+          <Button href="/contact" variant="outline-white" size="lg" className="hover:text-brand-organic-green">
             Request a Consultation
           </Button>
         </div>

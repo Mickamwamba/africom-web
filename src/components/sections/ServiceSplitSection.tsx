@@ -34,8 +34,8 @@ export default function ServiceSplitSection() {
               Agricultural Exports
             </h3>
             <p className="text-gray-600 leading-relaxed mb-6">
-              We export premium Tanzanian horticultural produce — avocados, green beans,
-              ginger, garlic, and capsicum — to regional and international buyers. From
+              We export premium Tanzanian horticultural produce — African Bird Eye Chili,
+              avocados, green beans, ginger, and garlic — to regional and international buyers. From
               farm-gate sourcing to shipment, we handle the full export process.
             </p>
             <ul className="space-y-2 mb-8">
@@ -58,6 +58,15 @@ export default function ServiceSplitSection() {
 
           {/* Consultation */}
           <div data-testid="service-consultation-block" className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="relative h-48 rounded-xl overflow-hidden mb-6">
+              <Image
+                src="/images/sections/consultation.jpg"
+                alt="Agricultural development consultation and partnership"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
             <div className="w-12 h-12 bg-brand-organic-green rounded-xl flex items-center justify-center mb-5">
               <span className="text-white text-2xl" aria-hidden="true">📊</span>
             </div>

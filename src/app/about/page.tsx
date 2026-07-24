@@ -120,7 +120,7 @@ export default function AboutPage() {
                 Premium Tanzanian agricultural commodities exported to regional and
                 international markets with reliable logistics and documentation.
               </p>
-              <Button href="/exports" variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-brand-earth-brown">
+              <Button href="/exports" variant="outline-white" size="sm" className="hover:text-brand-earth-brown">
                 View Products
               </Button>
             </div>
@@ -131,7 +131,7 @@ export default function AboutPage() {
                 Expert support for NGOs, donors, and implementation partners across
                 agricultural value chain topics in East Africa.
               </p>
-              <Button href="/consultation" variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-brand-organic-green">
+              <Button href="/consultation" variant="outline-white" size="sm" className="hover:text-brand-organic-green">
                 View Services
               </Button>
             </div>

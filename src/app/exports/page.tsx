@@ -7,7 +7,7 @@ import { company } from "@/content/company";
 export const metadata: Metadata = {
   title: "Export Products — Africom International Ltd",
   description:
-    "Explore Africom International Ltd's Tanzanian horticultural exports — avocados, green beans, ginger, garlic, and capsicum — delivered to regional and international markets.",
+    "Explore Africom International Ltd's Tanzanian horticultural exports — African Bird Eye Chili, avocados, green beans, ginger, and garlic — delivered to regional and international markets.",
 };
 
 export default function ExportsPage() {

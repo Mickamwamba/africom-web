@@ -23,7 +23,7 @@ test.describe("User Story 1: Export Client Discovery", () => {
 
   test("exports page shows all 5 real Africom products", async ({ page }) => {
     await page.goto("/exports");
-    for (const name of ["Avocado", "Green Bean", "Ginger", "Garlic", "Capsicum"]) {
+    for (const name of ["African Bird Eye Chili (ABEC)", "Avocado", "Green Bean", "Ginger", "Garlic"]) {
       await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
     }
   });
