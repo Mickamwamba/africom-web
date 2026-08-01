@@ -17,10 +17,14 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# NEXT_PUBLIC_* vars are inlined into the client bundle AT BUILD TIME,
-# so they must be provided as build args (set these in Hyperlift's build env).
-ARG NEXT_PUBLIC_SUPABASE_URL
-ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+# NEXT_PUBLIC_* vars are inlined into the client bundle AT BUILD TIME. The
+# Supabase project URL and anon key are public (they ship to every browser),
+# so they are safe to bake in as defaults for build platforms (e.g. Spaceship
+# Hyperlift) that don't support passing build args. A `docker build --build-arg`
+# still overrides these defaults for local/other environments.
+# NOTE: never hardcode the SUPABASE service_role key here — this app doesn't use it.
+ARG NEXT_PUBLIC_SUPABASE_URL=https://sfpkcnyiqwesvfuhbjeo.supabase.co
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNmcGtjbnlpcXdlc3ZmdWhiamVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzMzAwMzksImV4cCI6MjA5NDkwNjAzOX0.uJs1kvnYk5lZoaveY_iAgAcrs0VtDqN8pP9ktwLKYi4
 ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
 ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY
 
